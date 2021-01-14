@@ -1,0 +1,52 @@
+
+<div class ="row">
+  <div class="col-12">
+    <center>
+      <img src="/assets/images/eatburgertitle.svg" width="80%">
+    </center>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <center>
+    <img src="/assets/images/burgerstitle.svg" width="80%">
+    <ul id="burger-text">
+        {{#each burgers}}
+          {{#unless devoured}}
+           <center><img src="/assets/images/burger.svg" width="20%" id="burger-text">
+          <form method="PUT" action="/api/burgers/{{id}}?_method=PUT" class="form-inline" id="burger-text"></center>
+          <div class="change-devoured">
+            <input type="hidden" name="devoured" value="true"/>
+            <label class="sr-only">Burger</label>
+            <p class="form-control-static">{{burger_name}}</p>
+          </div>
+          </form>
+            {{> burgers/burger-block devoured=true}}
+          {{/unless}}
+        {{/each}}</center>
+  </ul>
+</div>
+  <div class="col-sm-12 col-md-6">
+    <center>
+    <img src="/assets/images/devouredtitle.svg" width="80%">
+    </center>
+    <ul id="burger-text">
+      {{#each burgers}}
+        {{#if devoured}}
+          <label class="sr-only">Devoured Burger</label>
+          <p class="form-control-static">{{id}}. {{burger_name}}</p>
+        </form>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+<div class="col-12">
+  <center>
+    <img src="/assets/images/addaburger.svg" width="70%">
+    <form class="create-form">
+    <div class="form-group">
+      <label for="brgr" id="burger-text">Burger Type:</label>
+      <input type="text" id="brgr" name="burger_name">
+      <button type="submit">Add Burger</button>
+    </form>
+    </div>
+  </center>
+</div>

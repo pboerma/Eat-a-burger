@@ -1,0 +1,20 @@
+{
+  "name": "eat-a-burger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pboerma/Eat-a-burger.git"
+  },
+  "author": "Pieter Boerma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pboerma/Eat-a-burger/issues"
+  },
+  "homepage": "https://github.com/pboerma/Eat-a-burger#readme"
+}
