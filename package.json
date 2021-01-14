@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/pboerma/Eat-a-burger/issues"
   },
-  "homepage": "https://github.com/pboerma/Eat-a-burger#readme"
+  "homepage": "https://github.com/pboerma/Eat-a-burger#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0"
+  }
 }
