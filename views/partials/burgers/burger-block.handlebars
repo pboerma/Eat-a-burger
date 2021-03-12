@@ -1,6 +1,19 @@
-<li>
-	{{name}}
-	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
-		{{#if devoured}}Devour{{else}}{{/if}}
-	</button>
-</li>
+  
+<!--the actual block that each row of the mysql database will render as-->
+<div class="burger__block">
+	<img src="/assets/img/burger.png" width="100px" />
+
+	<div class="info__bar">
+		<div class="info__inside">
+			<p class="burgerName">
+				{{burger_name}}
+			</p>
+
+			<button class="change-devour btn" data-id="{{id}}" data-newdevour="{{devoured}}">
+				{{#if devoured}}Devour!{{else}}Reorder{{/if}}
+			</button>
+
+			<button class="delete-burger btn" data-id="{{this.id}}">Delete!</button>
+		</div>
+	</div>
+</div>

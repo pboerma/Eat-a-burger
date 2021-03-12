@@ -1,52 +1,41 @@
-
-<div class ="row">
-  <div class="col-12">
-    <center>
-      <img src="" width="80%">
-    </center>
+<div class="burger__card">
+  <h2>Your Burgers</h2>
+	<!--looping through the data for !devoured burgers-->
+  <div class="burger__list">
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{> burgers/burger-block devoured=true}}
+    {{/unless}}
+    {{/each}}
   </div>
-  <div class="col-sm-12 col-md-6">
-    <center>
-    <img src="" width="80%">
-    <ul id="burger-text">
-        {{#each burgers}}
-          {{#unless devoured}}
-           <center><img src="" width="20%" id="burger-text">
-          <form method="PUT" action="/api/burgers/{{id}}?_method=PUT" class="form-inline" id="burger-text"></center>
-          <div class="change-devoured">
-            <input type="hidden" name="devoured" value="true"/>
-            <label class="sr-only">Burger</label>
-            <p class="form-control-static">{{burger_name}}</p>
-          </div>
-          </form>
-            {{> burgers/burger-block devoured=true}}
-          {{/unless}}
-        {{/each}}</center>
-  </ul>
 </div>
-  <div class="col-sm-12 col-md-6">
-    <center>
-    <img src="/assets/images/devouredtitle.svg" width="80%">
-    </center>
-    <ul id="burger-text">
-      {{#each burgers}}
-        {{#if devoured}}
-          <label class="sr-only">Devoured Burger</label>
-          <p class="form-control-static">{{id}}. {{burger_name}}</p>
-        </form>
-        {{/if}}
-      {{/each}}
-    </ul>
+<div class="burger__card">
+  <h2>Past Burgers</h2>
+  
+  <!--looping through the data for devoured burgers-->
+  <div class="burger__list devoured__burgers">
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block devoured=false}}
+    {{/if}}
+    {{/each}}
   </div>
-<div class="col-12">
-  <center>
-    <img src="/assets/images/addaburger.svg" width="70%">
-    <form class="create-form">
+</div>
+<div class="burger__card">
+  <h2>Order A Burger</h2>
+  <form class="create-form">
+
     <div class="form-group">
-      <label for="brgr" id="burger-text">Burger Type:</label>
-      <input type="text" id="brgr" name="burger_name">
-      <button type="submit">Add Burger</button>
-    </form>
+      <label for="ca">Burger Name:</label>
+      <input type="text" id="ca" name="name">
     </div>
-  </center>
+
+    <div class="form-group">
+      <input type="radio" name="devoured" value="0" checked> Ready to Eat<br>
+      <input type="radio" name="devoured" value="1"> Devoured!
+      
+    </div>
+
+    <button type="btn__form submit btn">Add Burger</button>
+  </form>
 </div>

@@ -1,24 +1,26 @@
-var express = require("express");
+//requiring npms
+const express = require("express");
+const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 8080;
+const app = express();
+const exphbs = require("express-handlebars");
 
-var PORT = process.env.PORT || 8000;
-var app = express();
-
-// Serve static content for the app from the "public" folder
+//setting public route for css and frontend jquery and images
 app.use(express.static("public"));
 
-// Parse application body
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+//making the json readable
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-var exphbs = require("express-handlebars");
-
+//getting handlebars working
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burgerscontroller.js");
-
+//integrating the routes set by the controllers
+const routes = require("./controllers/burgers_controller.js");
 app.use(routes);
 
-app.listen(PORT, function () {
-    console.log("Listening on port:%s", PORT);
+//making it all go
+app.listen(PORT, function() {
+  console.log("Server listening on: http://localhost:" + PORT);
 });
